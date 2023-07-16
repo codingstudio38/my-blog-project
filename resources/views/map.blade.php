@@ -30,14 +30,13 @@
 </head>
 
 <body>
-    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
-
+    <script src="{{ url('/') }}/js/highmaps.js"></script>
+    <script src="{{ url('/') }}/js/exporting.js"></script>
     <script type='text/javascript'>
         (async () => {
 
             const topology = await fetch(
-                'https://code.highcharts.com/mapdata/countries/in/in-all.topo.json'
+                `{{ url('/') }}/in-all.topo.json`
             ).then(response => response.json());
 
             const data = [
