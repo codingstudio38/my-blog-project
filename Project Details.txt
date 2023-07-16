@@ -1,0 +1,15 @@
+Project Details
+---------------
+This is a simple blog project. Here user will be create his/her accout.
+And after his/her account creation his/her need to login first.
+After login he/she will be show dashboard interface.
+And than he/she can add his blog post, edit blog, delete blog also he/she can edit his/her profile.
+
+Dome user credential
+--------------------
+username-mondalbidyut38@gmail.com
+password-12345678
+--------------------
+
+-> Register link: my-blog-project/register
+-> Login link: my-blog-project/login
