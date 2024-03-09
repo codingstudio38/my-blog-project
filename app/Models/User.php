@@ -46,7 +46,6 @@ class User extends Authenticatable
     public function GetRowByEmail(string $emailid){
         try {
             DB::select("SET @p0='$emailid'");
-            DB::select("SET @p1=''");
             DB::select("CALL `CountRowByEmail`(@p0, @p1)");
             $total_record = DB::select("SELECT @p1 AS `total_row`");
             if(count($total_record) <= 0){

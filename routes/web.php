@@ -32,6 +32,7 @@ Route::fallback(function(){
 });  
      
 Route::get("/",[HomeController::class, 'index'])->name('indexpage');
+Route::get("/nic-mail-test",[HomeController::class, 'NicMailTest'])->name('NicMailTest');
 Route::get('/images_', [HomeController::class, 'Images_function'])->name('images_');
 Route::post('/images-check', [HomeController::class, 'Images_functionPOST'])->name('images-check');
 Route::get('/blog/{title}', [HomeController::class, 'GetBlogByTitle'])->name('show-blog');

@@ -54,6 +54,7 @@ class UsersController extends Controller
             $password = $request->post('password');
 
             $GetUserByEmail = $this->UserModel->GetRowByEmail($email);
+           
             if(!$GetUserByEmail['result']){
                 return redirect($login_route)->with('failed_','These credentials do not match our records.')->withInput();
             } 

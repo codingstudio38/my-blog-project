@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\BlogModel;
 use Auth;
 use \App\ImgCompressor\ImgCompressor; 
+use Illuminate\Support\Facades\Mail;
 class HomeController extends Controller
 {
     public $UserModel;
@@ -235,6 +236,23 @@ class HomeController extends Controller
     }
 
 
+    
+      public function NicMailTest(Request $r){
+        //rtcvpztfeqnmfwkm
+        //@password@123
+        $data = [
+            'name' =>'bidyut',
+            'data' =>'nis main'
+        ];
+        $user['to'] = 'mondalbidyut38@gmail.com';
+        $user['subject'] = 'NIS MAIL TEST';
+       $mail = Mail::send('mail',$data, function($messages) use ($user){
+            $messages->to($user['to']);
+            $messages->subject($user['subject']);
+        }); 
+        dd($mail);
+        return "Email has been successfully send.";
+    }
 
 
 

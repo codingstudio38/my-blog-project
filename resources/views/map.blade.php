@@ -34,9 +34,7 @@
     <script src="{{ url('/') }}/js/exporting.js"></script>
     <script type='text/javascript'>
         (async () => {
-
-            const topology = await fetch(
-                `{{ url('/') }}/in-all.topo.json`
+            const topology = await fetch(`{{ url('/') }}/in-all.topo.json`
             ).then(response => response.json());
 
             const data = [
