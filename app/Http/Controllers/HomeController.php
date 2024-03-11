@@ -246,12 +246,17 @@ class HomeController extends Controller
         ];
         $user['to'] = 'mondalbidyut38@gmail.com';
         $user['subject'] = 'NIS MAIL TEST';
-       $mail = Mail::send('mail',$data, function($messages) use ($user){
+       $mail = Mail::mailer('smtp')->send('mail',$data, function($messages) use ($user){
+            $messages->from(env('MAIL_FROM_ADDRESS','onlinemessages0001@gmail.com'),'noreplysmtp');
             $messages->to($user['to']);
             $messages->subject($user['subject']);
         }); 
-        dd($mail);
-        return "Email has been successfully send.";
+        $mail2 = Mail::mailer('smtp2')->send('mail',$data, function($messages) use ($user){
+            $messages->from(env('MAIL_FROM_ADDRESS','onlinemessages0001@gmail.com'),'noreplysmtp2');
+            $messages->to($user['to']);
+            $messages->subject('mail test smtp2');
+        });
+        dd(array($mail,$mail2));
     }
 
 
