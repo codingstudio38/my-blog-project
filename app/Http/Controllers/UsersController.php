@@ -68,7 +68,7 @@ class UsersController extends Controller
             }
             $request->session()->forget('user_data');
             $request->session()->put('user_data',$user);
-            Auth::login(User::find($GetUserByEmail['data']->id));
+            // Auth::login(User::find($GetUserByEmail['data']->id));
             return redirect($user_home_route)->with('success_','Successfully logged in');
         } catch (\Throwable $error) {
             $data = array(
@@ -355,7 +355,7 @@ class UsersController extends Controller
             $get_user_data = $this->UserModel->GetRowById($login_user->id);
             if($get_user_data['total_rows'] <= 0){
                 $request->session()->forget('user_data'); 
-                Auth::logout();
+                // Auth::logout();
                 return redirect($login_route)->with('failed_','User not found.');
             }
             $user = $get_user_data['data'];
@@ -372,7 +372,7 @@ class UsersController extends Controller
                 throw new \Exception('Failed to update password. Please try again after some time.');
             }
             $request->session()->forget('user_data'); 
-            Auth::logout();
+            // Auth::logout();
             return redirect($login_route)->with('success_','Password has been successfully updated. Please login.');
         } catch (\Throwable $error) {
             $data = array(
@@ -390,7 +390,7 @@ class UsersController extends Controller
             $register_route = route('register');
             $login_route = route('login');
             $request->session()->forget('user_data');
-            Auth::logout();
+            // Auth::logout();
             return redirect($login_route)->with('success_','Successfully logged out');
             
         } catch (\Throwable $error) {

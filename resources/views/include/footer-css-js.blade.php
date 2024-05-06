@@ -1,1 +1,1 @@
-<script src="{{ url('/') }}/js/custom.js"></script>
+<script src="{{ url('/public/') }}/js/custom.js"></script>
